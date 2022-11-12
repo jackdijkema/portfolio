@@ -11,7 +11,7 @@ function Profile() {
         ></img>
       </figure>
       <h1 className="profile_name">Jack Dijkema</h1>
-      <h2 className="profile_title">Software Engineer</h2>
+      <h2 className="profile_title">Software Developer</h2>
 
       <ul className="profile_socials">
         <div className="profile_socials_link">
