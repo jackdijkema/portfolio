@@ -1,5 +1,5 @@
-import AdminForm from "../components/AdminForm/AdminForm";
-import Navbar from "../components/Navbar/Navbar";
+import AdminForm from "../components/Admin/AdminForm/AdminForm";
+import Navbar from "../components/UI/Navbar/Navbar";
 function Admin() {
   return (
     <div >

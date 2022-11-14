@@ -1,8 +1,8 @@
 import "../App.css"
 
-import Navbar from "../components/Navbar/Navbar";
-import Profile from "../components/Profile/Profile";
-import Project from "../components/Projects/Project";
+import Navbar from "../components/UI/Navbar/Navbar";
+import Profile from "../components/Home/Profile/Profile";
+import Project from "../components/Home/Projects/Project";
 
 function Home() {
   return (

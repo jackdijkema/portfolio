@@ -1,5 +1,5 @@
-import Navbar from "../components/Navbar/Navbar";
-import NotFound from "../components/NotFound/NotFound";
+import Navbar from "../components/UI/Navbar/Navbar";
+import NotFound from "../components/UI/NotFound/NotFound";
 
 function NoPage() {
   return (
