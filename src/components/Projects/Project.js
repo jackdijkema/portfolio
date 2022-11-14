@@ -11,19 +11,39 @@ function Project() {
       <h1 className="project__title">Projects</h1>
       <div className="columns">
         <div className="left_column">
-          
-          <Article name="DungeonOfGameBro" bio="this is a game..." link="https://google.com"/>
-          <Article name="DungeonOfGameBro" bio="this is a game..." link="https://google.com"/>
-          <Article name="DungeonOfGameBro" bio="this is a game..." link="https://google.com"/>
-          
+          <Article
+            name="DungeonOfGameBro"
+            bio="this is a game..."
+            link="https://google.com"
+          />
+          <Article
+            name="DungeonOfGameBro"
+            bio="this is a game..."
+            link="https://google.com"
+          />
+          <Article
+            name="DungeonOfGameBro"
+            bio="this is a game..."
+            link="https://google.com"
+          />
         </div>
 
         <div className="right_column">
-          
-          <Article name="DungeonOfGameBro" bio="this is a game..." link="https://google.com"/>
-          <Article name="DungeonOfGameBro" bio="this is a game..." link="https://google.com"/>
-          <Article name="DungeonOfGameBro" bio="this is a game..." link="https://google.com"/>
-
+          <Article
+            name="DungeonOfGameBro"
+            bio="this is a game..."
+            link="https://google.com"
+          />
+          <Article
+            name="DungeonOfGameBro"
+            bio="this is a game..."
+            link="https://google.com"
+          />
+          <Article
+            name="DungeonOfGameBro"
+            bio="this is a game..."
+            link="https://google.com"
+          />
         </div>
       </div>
     </div>

@@ -1,40 +1,36 @@
 import "./Profile.css";
 
-function Profile() {
+function Profile(props) {
   return (
     <section className="profile">
       <figure className="profile_figure">
         <img
           className="profile_picture"
           src={require("./img/selfie.png")}
-          alt="selfie of Jack"
+          alt="selfie of {props.name}"
         ></img>
       </figure>
-      <h1 className="profile_name">Jack Dijkema</h1>
-      <h2 className="profile_title">Software Developer</h2>
+      <h1 className="profile_name">{props.name}</h1>
+      <h2 className="profile_title">{props.title}</h2>
 
       <ul className="profile_socials">
         <div className="profile_socials_link">
           <li>
             <i className="fa-brands fa-github"></i>
-            <a href="blog.html">Github</a>
+            <a href="{ props.ghlink }">Github</a>
           </li>
         </div>
         <div className="profile_socials_link">
           <li>
             <i className="fa-brands fa-linkedin-in"></i>
-            <a href="blog.html">LinkedIn</a>
+            <a href="{props.lilink}">LinkedIn</a>
           </li>
         </div>
       </ul>
 
       <div className="profile_about">
         <p className="about">
-          born in 2001
-          <br />
-          in Amsterdam.
-          <br />
-          trying to change the world one line at a time.
+        {props.about}
         </p>
       </div>
     </section>
