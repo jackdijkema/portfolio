@@ -1,10 +1,11 @@
-import AdminForm from "../components/Admin/AdminLogin/AdminForm";
+import AdminLogin from "../components/Admin/AdminLogin/AdminLogin";
 import Navbar from "../components/UI/Navbar/Navbar";
+
 function Admin() {
   return (
     <div >
     <Navbar />
-    <AdminForm />
+    <AdminLogin />
     </div>
   );
 }

@@ -1,21 +1,53 @@
 .admin__panel {
   height: 50vh;
+  display: flex;
+  justify-content: center;
 }
 
 .admin__title {
-  text-align: center;
   margin-bottom: 0.8rem;
 }
 .admin__form {
+  display: inherit;
   justify-content: center;
-  margin: auto;
-  display: flex;
   flex-direction: column;
-  max-width: 200px;
   height: 100%;
 }
 
 input {
   padding: 0.4rem;
   margin-bottom: 0.3rem;
+  border-radius: 10px;
+  padding: 0px 16px;
+  border: 1px solid rgb(204, 205, 205);
+  height: 56px;
+  color: black;
+}
+
+input[type=submit] {
+  margin-top: 1rem;
+  height: 3rem;
+  padding: 1rem;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 999px;
+  font-weight: 600;
+  background: rgb(230, 230, 230);
+  color: black;
+  border: none;
+}
+.form__error {
+  margin-top: 1rem;
+  text-align: center;
+  text-transform: uppercase;
+  border: solid 1px;
+  padding: 1rem;
+  border-radius: 10px;
+  display: inherit;
+  visibility: hidden;
+}
+
+.form__error__message {
+  font-weight: 600;
+  margin-left: 10px;
 }
