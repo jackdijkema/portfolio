@@ -4,10 +4,6 @@ import AdminLogin from "../components/Admin/AdminLogin/AdminLogin"
 import React, { useState } from "react";
 
 function Admin() {
-  const [token, setToken] = useState();
-  if (!token) {
-    return (<><Navbar /><AdminLogin setToken={setToken} /></>); 
-  }
   return (
     <div>
       <Navbar />
