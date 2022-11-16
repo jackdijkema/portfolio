@@ -8,7 +8,8 @@
   margin-bottom: 0.8rem;
 }
 .admin__form {
-  display: inherit;
+  display: flex;
+  margin: auto;
   justify-content: center;
   flex-direction: column;
   height: 100%;
@@ -22,6 +23,9 @@ input {
   border: 1px solid rgb(204, 205, 205);
   height: 56px;
   color: black;
+  max-width: 300px;
+  justify-content: center;
+  width: 300px;
 }
 
 input[type=submit] {
@@ -37,6 +41,7 @@ input[type=submit] {
   border: none;
 }
 .form__error {
+  font-size: smaller;
   margin-top: 1rem;
   text-align: center;
   text-transform: uppercase;
@@ -45,9 +50,12 @@ input[type=submit] {
   border-radius: 10px;
   display: inherit;
   visibility: hidden;
+  max-width: 300px;
 }
 
 .form__error__message {
-  font-weight: 600;
+  font-weight: 600 bold;
+  text-align: center;
+  width: 100%;
   margin-left: 10px;
 }
