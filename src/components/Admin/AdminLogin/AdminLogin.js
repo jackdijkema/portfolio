@@ -1,13 +1,19 @@
 import "./AdminLogin.css";
-import { useState, useRef } from "react";
+import { useRef, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
+import AuthContext from "../../../store/auth-context";
+
 library.add(faExclamationTriangle);
 
 const AdminLogin = () => {
   const emailInputRef = useRef();
   const passwordInputRef = useRef();
+  const nav = useNavigate();
+  const authCtx = useContext(AuthContext);
 
   const submitHandler = (event) => {
     event.preventDefault();
@@ -26,22 +32,27 @@ const AdminLogin = () => {
       headers: {
         "Content-Type": "application/json",
       },
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      } else {
-        return res.json().then((data) => {
-          let errorBox = document.getElementsByClassName("form__error");
+    })
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        } else {
+          return res.json().then((data) => {
+            let errorBox = document.getElementsByClassName("form__error");
 
-          errorBox[0].style.visibility = "visible";
+            errorBox[0].style.visibility = "visible";
 
-          let errorMess = document.getElementsByClassName(
-            "form__error__message"
-          );
-          errorMess[0].textContent = data["error"]["message"].toString();
-        });
-      }
-    });
+            let errorMess = document.getElementsByClassName(
+              "form__error__message"
+            );
+            errorMess[0].textContent = data["error"]["message"].toString();
+          });
+        }
+      })
+      .then((data) => {
+        authCtx.login(data.idToken);
+        nav("/dashboard", {replace: true});
+      });
   };
 
   return (

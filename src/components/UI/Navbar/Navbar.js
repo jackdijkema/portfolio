@@ -1,17 +1,37 @@
-import { Link } from 'react-router-dom';
-import './Navbar.css';
+import { useContext } from "react";
+import { Link } from "react-router-dom";
+import AuthContext from "../../../store/auth-context";
+import "./Navbar.css";
 
 function Navbar() {
-    return (
-        <nav className='headbar'>
-            <ul>
-                <Link to="/">Home</Link>
-                <Link to="#about">About</Link>
-                <Link to="#projects">Project</Link>
-                <Link to="#contact">Contact</Link>
-            </ul>
-        </nav>
-    );
+  const authCtx = useContext(AuthContext);
+  // const isloggedIn = authCtx.isLoggedIn;
+  const logoutHandler = () => {
+    authCtx.logout();
+  };
+  return (
+    <nav className="headbar">
+      <ul>
+        {!authCtx.isLoggedIn && (
+          <>
+            <Link to="/">Home</Link>
+            <Link to="#projects">Project</Link>
+            <Link to="#contact">Contact</Link>
+            <Link to="#about">About</Link>
+          </>
+        )}
+        
+        {authCtx.isLoggedIn && (
+          <>
+            <Link to="/dashboard" >
+              Admin panel
+            </Link>
+            <Link onClick={logoutHandler} to="/">Logout</Link>
+          </>
+        )}
+      </ul>
+    </nav>
+  );
 }
 
 export default Navbar;
