@@ -1,2 +1,2 @@
 # portfolio
-- Portfolio with React
+- Portfolio with React and an admin panel that uses Firebase Authentication for login.
