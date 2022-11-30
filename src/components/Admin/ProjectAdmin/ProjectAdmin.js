@@ -1,59 +1,116 @@
 import "./ProjectAdmin.css";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { db } from "../../../store/firebase";
-import { collection, getDocs } from "firebase/firestore";
+import {
+  collection,
+  getDocs,
+  addDoc,
+  deleteDoc,
+  doc,
+} from "firebase/firestore";
 
 const ProjectAdmin = () => {
   const [projects, setProjects] = useState([]);
 
   const FetchProjects = async () => {
-
-    getDocs(collection(db, "projects"))
-    .then((querySnapshot) => {
-
-      const newData = querySnapshot.docs.map((doc) => ({...doc.data(), id: doc.id,}));
+    getDocs(collection(db, "projects")).then((querySnapshot) => {
+      const newData = querySnapshot.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      }));
       setProjects(newData);
     });
   };
-    useEffect(() => {
+
+  const enteredNameRef = useRef();
+  const enteredDescriptionRef = useRef();
+  const enteredLinkRef = useRef();
+
+  const addProjectHandler = async () => {
+    const enteredName = enteredNameRef.current.value;
+    const enteredDescription = enteredDescriptionRef.current.value;
+    const enteredLink = enteredLinkRef.current.value;
+
+    try {
+      const docRef = await addDoc(collection(db, "projects"), {
+        name: enteredName,
+        description: enteredDescription,
+        link: enteredLink,
+      });
       FetchProjects();
-    },[]); 
+      alert("Project added succesfully.", "id:", docRef.id);
+    } catch (error) {
+      alert(error);
+    }
+  };
+
+  const removeProjectHandler = async (id) => {
+    try {
+     console.log(id); 
+      await deleteDoc(doc(db, "projects", id ));
+      alert("Project Deleted Succesfully.");
+      FetchProjects();
+    } catch (error) {
+      alert(error,'project id:', id);
+    }
+  };
+
+  useEffect(() => {
+    FetchProjects();
+  }, []);
 
   return (
     <section className="projects_container">
-      <h2 className="project__h1">Add/Edit/Remove project</h2>
+      <h2 className="project__h1">Manage Projects</h2>
+      <section className="add_project">
+        <input
+          ref={enteredNameRef}
+          className="admin__project_input"
+          placeholder="Project Name"
+        ></input>
+        <input
+          ref={enteredDescriptionRef}
+          className="admin__project_input"
+          placeholder="Project Description"
+        ></input>
+        <input
+          ref={enteredLinkRef}
+          className="admin__project_input"
+          placeholder="Project link"
+        ></input>
 
-      <button className="button" href={"#"}>
-        Add new project.
-      </button>
+        <button className="button" onClick={addProjectHandler}>
+          Add new project.
+        </button>
+      </section>
+
       <table className="project_table">
         <thead>
-          <tr class="projects">
-            <th class="column2">ID</th>
-            <th class="column3">Name</th>
-            <th class="column4">Bio</th>
-            <th class="column5">Github</th>
-            <th class="column6">Edit</th>
-            <th class="column7">Remove</th>
+          <tr className="projects">
+            <th>Project ID</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Link</th>
+            <th>Edit</th>
+            <th>Remove</th>
           </tr>
         </thead>
         <tbody>
           {projects.map((project, i) => (
-           <tr>
-           <td class="column1">{project.id}</td>
-           <td class="column2">{project.name}</td>
-           <td class="column2">{project.description}</td>
-           <td class="column2">{project.link}</td>
-           <td class="column6">
-              <button>Edit</button>
-            </td>
-            <td class="column7">
-              <button>Remove</button>
-            </td> 
-          </tr> 
+            <tr>
+              <td>{project.id}</td>
+              <td>{project.name}</td>
+              <td>{project.description}</td>
+              <td>{project.link}</td>
+              <td>
+                <button>Edit</button>
+              </td>
+              <td>
+                <button onClick={() => removeProjectHandler(project.id)}>Remove</button>
+              </td>
+            </tr>
           ))}
-
         </tbody>
       </table>
     </section>

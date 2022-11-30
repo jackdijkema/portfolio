@@ -37,4 +37,11 @@ th {
   border: 1px solid white;
   border-radius: 10px;
   font-weight: 600;
+  cursor: pointer;
+}
+
+
+.admin__project_input {
+  height: 3rem;
+  margin-right: 10px;
 }
