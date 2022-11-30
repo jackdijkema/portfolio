@@ -21,7 +21,7 @@ const AdminLogin = () => {
     const enteredPassword = passwordInputRef.current.value;
     let url =
       "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=" +
-      process.env.REACT_APP_API_KEY;
+      process.env.REACT_APP_FIREBASE_API_KEY;
     fetch(url, {
       method: "POST",
       body: JSON.stringify({
@@ -51,7 +51,7 @@ const AdminLogin = () => {
       })
       .then((data) => {
         authCtx.login(data.idToken);
-        nav("/dashboard", {replace: true});
+        nav("/dashboard", { replace: true });
       });
   };
 

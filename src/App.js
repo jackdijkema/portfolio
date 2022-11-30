@@ -16,9 +16,7 @@ function App() {
       <Router>
         <Routes>
           <Route index path="/" element={<Home />} />
-          {!isLoggedIn && (
-          <Route path="/admin" element={<Admin />} />
-          )}
+          {!isLoggedIn && <Route path="/admin" element={<Admin />} />}
           {isLoggedIn && <Route path="/dashboard" element={<Dashboard />} />}
           <Route path="*" element={<NoPage />} />
         </Routes>
