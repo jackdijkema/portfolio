@@ -5,13 +5,14 @@ import Profile from "../components/Home/Profile/Profile";
 import Project from "../components/Home/Projects/Project";
 
 function Home() {
+  document.title = "Jack's Portfolio";
   return (
     <main>
       <Navbar />
       <Profile
         name="Jack Dijkema"
         title="Software Developer"
-        about="changing the world one line at a time."
+        about="I'm Jack – a developer from the Netherlands. Currently studying Software-Engineering at Hogeschool Leiden."
         ghlink="https://github.com/jackdijkema"
         lilink="https://linkedin.com/jackdijkema"
       />

@@ -23,6 +23,9 @@ function Navbar() {
         
         {authCtx.isLoggedIn && (
           <>
+          <Link to="/" >
+             Home
+             </Link> 
             <Link to="/dashboard" >
               Admin panel
             </Link>

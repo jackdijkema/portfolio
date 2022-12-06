@@ -62,7 +62,7 @@ const ProjectAdmin = () => {
 
   return (
     <section className="projects_container">
-      <h2 className="project__h1">Manage Projects</h2>
+      <h2 className="project__h1">Projects</h2>
       <section className="add_project">
         <input
           ref={enteredNameRef}
@@ -81,14 +81,13 @@ const ProjectAdmin = () => {
         ></input>
 
         <button className="button" onClick={addProjectHandler}>
-          Add new project.
+          Add New Project 
         </button>
       </section>
 
       <table className="project_table">
         <thead>
           <tr className="projects">
-            <th>Project ID</th>
             <th>Name</th>
             <th>Description</th>
             <th>Link</th>
@@ -99,15 +98,14 @@ const ProjectAdmin = () => {
         <tbody>
           {projects.map((project, i) => (
             <tr>
-              <td>{project.id}</td>
               <td>{project.name}</td>
               <td>{project.description}</td>
               <td>{project.link}</td>
               <td>
-                <button>Edit</button>
+                <button className="button">Edit</button>
               </td>
               <td>
-                <button onClick={() => removeProjectHandler(project.id)}>Remove</button>
+                <button  className="button" onClick={() => removeProjectHandler(project.id)}>Remove </button>
               </td>
             </tr>
           ))}

@@ -20,7 +20,7 @@ input {
   margin-bottom: 0.3rem;
   border-radius: 10px;
   padding: 0px 16px;
-  border: 1px solid rgb(204, 205, 205);
+  border: 1px solid black;
   height: 56px;
   color: black;
   max-width: 300px;
@@ -36,8 +36,8 @@ input[type=submit] {
   cursor: pointer;
   border-radius: 999px;
   font-weight: 600;
-  background: rgb(230, 230, 230);
-  color: black;
+  background: black;
+  color: white;
   border: none;
 }
 .form__error {

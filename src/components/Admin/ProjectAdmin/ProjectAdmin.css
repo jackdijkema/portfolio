@@ -11,37 +11,49 @@
 .project_table {
   border-collapse: collapse;
   width: 100%;
+  border-radius: 10px;
   margin: 1rem;
+}
+
+th {
+  padding: 0.75rem;
+  text-align: left;
+  background-color: black;
+  color: white;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  border-right: 1px solid white;
+  margin-right: 10px;
+  height: 3rem;
   border-radius: 10px;
 }
 
-th {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  text-align: left;
-  background-color: #69a18f;
-  color: white;
-}
-
-td,
-th {
-  border: 1px solid #ddd;
-  padding: 0.5rem;
+td {
+  border-bottom: 1px solid black;
+  padding: 0.75rem;
+  margin-right: 10px;
+  border-radius: 10px;
+  margin: 1rem;
 }
 
 .button {
-  max-width: fit-content;
-  background-color: #69a18f;
-  padding: 0.75rem;
+  background-color: black;
+  border: none;
   color: white;
-  border: 1px solid white;
-  border-radius: 10px;
-  font-weight: 600;
   cursor: pointer;
+  max-height: 3rem;
+  max-width: fit-content;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 999px;
+  font-weight: 600;
 }
 
 
 .admin__project_input {
+  margin: 1rem;
   height: 3rem;
+  max-width: 15rem;
   margin-right: 10px;
+  border: solid black 1px;
 }
