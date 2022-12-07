@@ -62,44 +62,60 @@ const ProfileAdmin = () => {
   return (
     <section className="profile_container">
       <h2 className="profile__h1">Profile</h2>
-      <section className="profile_preview">
+      <section className="column_container">
+        <section className="column1">
+          <figure className="profile_figure_admin">
+            <img
+              className="profile_picture_admin"
+              src={require("../../Home/Profile/img/selfie.png")}
+              alt="selfie of {props.name}"
+            ></img>
+            <button className="button button-center">Change Picture</button>
+          </figure>
+
+          
+        </section>
+        <section className="column2">
         <label>Name</label>
-        <input
-          ref={enteredNameRef}
-          type="text"
-          defaultValue={profile[0]?.name}
-        ></input>
-        <label>Occupation</label>
-        <input
-          ref={enteredOccupationRef}
-          type="text"
-          defaultValue={profile[0]?.occupation}
-        ></input>
-        <label>Bio</label>
-        <textarea
-          ref={enteredBioRef}
-          className="profile_textarea"
-          type="text"
-          defaultValue={profile[0]?.bio}
-        ></textarea>
-        <label>Github</label>
-        <input
-          ref={enteredGithubRef}
-          type="text"
-          defaultValue={profile[0]?.github}
-        ></input>
-        <label>LinkedIn</label>
-        <input
-          ref={enteredLinkedinRef}
-          type="text"
-          defaultValue={profile[0]?.linkedin}
-        ></input>
-      </section>
-      <section className="profile_edit">
+          <input
+            ref={enteredNameRef}
+            type="text"
+            defaultValue={profile[0]?.name}
+          ></input>
+          <label>Occupation</label>
+          <input
+            ref={enteredOccupationRef}
+            type="text"
+            defaultValue={profile[0]?.occupation}
+          ></input>
+          <label>Bio</label>
+          <textarea
+            ref={enteredBioRef}
+            className="profile_textarea"
+            type="text"
+            defaultValue={profile[0]?.bio}
+          ></textarea>
+          <label>Github</label>
+          <input
+            ref={enteredGithubRef}
+            type="text"
+            defaultValue={profile[0]?.github}
+          ></input>
+          <label>LinkedIn</label>
+          <input
+            ref={enteredLinkedinRef}
+            type="text"
+            defaultValue={profile[0]?.linkedin}
+          ></input>
+           <section className="profile_edit">
         <button className="button" onClick={editProfileHandler}>
           Save Profile
         </button>
       </section>
+        </section>
+      </section>
+
+     
     </section>
   );
 };
