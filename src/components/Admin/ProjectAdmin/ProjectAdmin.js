@@ -108,7 +108,7 @@ const ProjectAdmin = () => {
                 <button className="button">
                   <FontAwesomeIcon
                     icon="fa-solid fa-pencil"
-                    size={"m"}
+                    size={"1x"}
                     className="icon"
                   />{" "}
                 </button>
@@ -120,7 +120,7 @@ const ProjectAdmin = () => {
                 >
                   <FontAwesomeIcon
                     icon="fa-solid fa-trash-can"
-                    size={"m"}
+                    size={"1x"}
                     className="icon"
                   />{" "}
                 </button>

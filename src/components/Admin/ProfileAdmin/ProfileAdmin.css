@@ -1,21 +1,39 @@
 .profile_container {
   padding: 1rem;
   width: 100%;
-}
-
-.profile_preview {
-  margin: auto;
-  padding: 0.5rem;
+  display: flex;
   flex-direction: column;
 }
 
-.profile_preview p {
+.profile_preview {
+  display: flex;
+  flex-direction: column;
   padding: 0.5rem;
-  /* border: yellow 1px solid; */
-  text-align: center;
+  /* flex-direction: column; */
+  /* justify-content: center; */
 }
 
 .admin__project_input {
-  height: 3rem;
-  margin-right: 10px;
+  max-height: 3rem;
+}
+
+.profile_textarea {
+  padding: 0.5rem;
+  height: 10rem;
+  width: 50%;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+input {
+  padding: 0.4rem;
+  margin-bottom: 0.5rem;
+  border-radius: 10px;
+  padding: 0px 0.5rem;
+  border: 1px solid black;
+  height: 56px;
+  color: black;
+  max-width: 300px;
+  justify-content: center;
+  width: 300px;
 }
