@@ -1,8 +1,19 @@
 .profile_container {
   padding: 1rem;
+  width: 100%;
 }
 
+.profile_preview {
+  margin: auto;
+  padding: 0.5rem;
+  flex-direction: column;
+}
 
+.profile_preview p {
+  padding: 0.5rem;
+  /* border: yellow 1px solid; */
+  text-align: center;
+}
 
 .admin__project_input {
   height: 3rem;

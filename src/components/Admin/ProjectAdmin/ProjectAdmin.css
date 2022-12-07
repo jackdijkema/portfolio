@@ -47,6 +47,7 @@ td {
   text-align: center;
   border-radius: 999px;
   font-weight: 600;
+  margin: auto;
 }
 
 
@@ -56,4 +57,9 @@ td {
   max-width: 15rem;
   margin-right: 10px;
   border: solid black 1px;
+}
+
+
+.icon {
+ margin: auto;
 }

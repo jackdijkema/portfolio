@@ -1,5 +1,7 @@
 import "./ProjectAdmin.css";
-
+import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState, useEffect, useRef } from "react";
 import { db } from "../../../store/firebase";
 import {
@@ -9,6 +11,7 @@ import {
   deleteDoc,
   doc,
 } from "firebase/firestore";
+library.add(faTrashCan);
 
 const ProjectAdmin = () => {
   const [projects, setProjects] = useState([]);
@@ -47,12 +50,12 @@ const ProjectAdmin = () => {
 
   const removeProjectHandler = async (id) => {
     try {
-     console.log(id); 
-      await deleteDoc(doc(db, "projects", id ));
+      console.log(id);
+      await deleteDoc(doc(db, "projects", id));
       alert("Project Deleted Succesfully.");
       FetchProjects();
     } catch (error) {
-      alert(error,'project id:', id);
+      alert(error, "project id:", id);
     }
   };
 
@@ -81,7 +84,7 @@ const ProjectAdmin = () => {
         ></input>
 
         <button className="button" onClick={addProjectHandler}>
-          Add New Project 
+          Add New Project
         </button>
       </section>
 
@@ -91,8 +94,8 @@ const ProjectAdmin = () => {
             <th>Name</th>
             <th>Description</th>
             <th>Link</th>
-            <th>Edit</th>
-            <th>Remove</th>
+            <th></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -105,7 +108,16 @@ const ProjectAdmin = () => {
                 <button className="button">Edit</button>
               </td>
               <td>
-                <button  className="button" onClick={() => removeProjectHandler(project.id)}>Remove </button>
+                <button
+                  className="button"
+                  onClick={() => removeProjectHandler(project.id)}
+                >
+                  <FontAwesomeIcon
+                    icon="fa-solid fa-trash-can"
+                    size={"m"}
+                    className="icon"
+                  />{" "}
+                </button>
               </td>
             </tr>
           ))}
