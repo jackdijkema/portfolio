@@ -1,5 +1,5 @@
 import "./ProjectAdmin.css";
-import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
+import { faTrashCan, faPencil } from "@fortawesome/free-solid-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState, useEffect, useRef } from "react";
@@ -11,7 +11,7 @@ import {
   deleteDoc,
   doc,
 } from "firebase/firestore";
-library.add(faTrashCan);
+library.add(faTrashCan, faPencil);
 
 const ProjectAdmin = () => {
   const [projects, setProjects] = useState([]);
@@ -105,7 +105,13 @@ const ProjectAdmin = () => {
               <td>{project.description}</td>
               <td>{project.link}</td>
               <td>
-                <button className="button">Edit</button>
+                <button className="button">
+                  <FontAwesomeIcon
+                    icon="fa-solid fa-pencil"
+                    size={"m"}
+                    className="icon"
+                  />{" "}
+                </button>
               </td>
               <td>
                 <button

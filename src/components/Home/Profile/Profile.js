@@ -1,4 +1,9 @@
 import "./Profile.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { library } from "@fortawesome/fontawesome-svg-core";
+library.add(faGithub);
+library.add(faLinkedin);
 
 function Profile(props) {
   return (
@@ -15,23 +20,19 @@ function Profile(props) {
 
       <ul className="profile_socials">
         <div className="profile_socials_link">
-          <li>
-            <i className="fa-brands fa-github"></i>
-            <a href="{ props.ghlink }">Github</a>
-          </li>
+          <a href="https://github.com/jackdijkema">
+            <FontAwesomeIcon icon="fa-brands fa-github" size="1x" />
+          </a>
         </div>
         <div className="profile_socials_link">
-          <li>
-            <i className="fa-brands fa-linkedin-in"></i>
-            <a href="{props.lilink}">LinkedIn</a>
-          </li>
+          <a href="https://google.com">
+            <FontAwesomeIcon icon="fa-brands fa-linkedin" size="1x" />
+          </a>
         </div>
       </ul>
 
       <div className="profile_about">
-        <p className="about">
-        {props.about}
-        </p>
+        <p className="about">{props.about}</p>
       </div>
     </section>
   );

@@ -28,6 +28,7 @@
 .profile_socials a {
   text-decoration: none;
   font-size: 1.8rem;
+  color: black;
 }
 
 .profile_socials i {
@@ -46,6 +47,10 @@
 
 .profile_about {
     margin-top: 10%;
+}
+
+.profile_socials_link {
+  margin-right: 10px;
 }
 
 

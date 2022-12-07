@@ -18,6 +18,7 @@
   vertical-align: baseline;
   flex-direction: column;
 }
+
 .project__header {
   display: flex;
   font-size: 1rem;
@@ -28,6 +29,7 @@
   text-decoration: none;
   font-size: 1.3rem;
   font-weight: bold;
+  color: black;
 }
 .project__header a:hover{
   transition: ease-in 0.2s;
