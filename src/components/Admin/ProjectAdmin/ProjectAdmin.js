@@ -116,8 +116,7 @@ const ProjectAdmin = () => {
               <td>
                 <button
                   className="button"
-                  onClick={() => removeProjectHandler(project.id)}
-                >
+                  onClick={() => removeProjectHandler(project.id)}>
                   <FontAwesomeIcon
                     icon="fa-solid fa-trash-can"
                     size={"1x"}

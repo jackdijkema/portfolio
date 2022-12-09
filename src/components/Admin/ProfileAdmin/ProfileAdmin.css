@@ -9,8 +9,6 @@
   display: flex;
   flex-direction: column;
   padding: 0.5rem;
-  /* flex-direction: column; */
-  /* justify-content: center; */
 }
 
 .admin__project_input {
@@ -67,4 +65,32 @@ input {
 
 .button-center {
   margin: auto;
+}
+
+.custom-upload-section {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem; 
+  width: 100%;
+}
+
+.custom-upload-section > button {
+  display: flex;
+  margin-right: 10px;
+}
+
+.custom-upload-section > input {
+  border: solid 1px solid;
+  padding: 0;
+}
+.custom-upload-section input::file-selector-button {
+  background-color: black;
+  border: none;
+  color: white;
+  cursor: pointer;
+  max-height: 3rem;
+  padding: 1rem;
+  text-align: center;
+  font-weight: 600;
+  max-width: fit-content;
 }

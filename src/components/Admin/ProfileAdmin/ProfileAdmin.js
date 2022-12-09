@@ -4,8 +4,6 @@ import { useState, useEffect, useRef } from "react";
 import {
   collection,
   getDocs,
-  addDoc,
-  deleteDoc,
   doc,
   setDoc,
 } from "firebase/firestore";
@@ -42,7 +40,7 @@ const ProfileAdmin = () => {
     const enteredLinkedin = enteredLinkedinRef.current.value;
 
     try {
-      const docRef = await setDoc(doc(db, "profile", profile[0]?.id), {
+       await setDoc(doc(db, "profile", profile[0]?.id), {
         name: enteredName,
         occupation: enteredOccupation,
         bio: enteredBio,
@@ -70,13 +68,14 @@ const ProfileAdmin = () => {
               src={require("../../Home/Profile/img/selfie.png")}
               alt="selfie of {props.name}"
             ></img>
-            <button className="button button-center">Change Picture</button>
           </figure>
 
-          
+          <section className="custom-upload-section button-center">
+            <input id="upload" className="button-center" type="file" />
+          </section>
         </section>
         <section className="column2">
-        <label>Name</label>
+          <label>Name</label>
           <input
             ref={enteredNameRef}
             type="text"
@@ -107,15 +106,13 @@ const ProfileAdmin = () => {
             type="text"
             defaultValue={profile[0]?.linkedin}
           ></input>
-           <section className="profile_edit">
-        <button className="button" onClick={editProfileHandler}>
-          Save Profile
-        </button>
-      </section>
+          <section className="profile_edit">
+            <button className="button" onClick={editProfileHandler}>
+              Save Profile
+            </button>
+          </section>
         </section>
       </section>
-
-     
     </section>
   );
 };
