@@ -57,7 +57,7 @@ const ProfileAdmin = () => {
     FetchProfile();
   }, []);
 
-  return (
+    return (
     <section className="profile_container">
       <h2 className="profile__h1">Profile</h2>
       <section className="column_container">

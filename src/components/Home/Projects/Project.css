@@ -1,6 +1,8 @@
 .project {
   max-width: 100%;
   height: 50vh;
+  margin: auto;
+  width: 80%;
 }
 
 .project__title {
@@ -31,9 +33,9 @@
   font-weight: bold;
   color: black;
 }
-.project__header a:hover{
+.project__header a:hover {
   transition: ease-in 0.2s;
-  color: blueviolet;            
+  color: blueviolet;
   cursor: pointer;
 }
 
@@ -60,4 +62,15 @@
 
 .icon {
   margin-left: 5px;
+}
+
+@media screen and (max-width: 768px) {
+  .columns {
+    grid-template-columns: 1fr;
+  }
+
+  .project {
+    margin: auto;
+    width: 80%;
+  }
 }
