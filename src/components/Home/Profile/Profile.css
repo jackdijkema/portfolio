@@ -22,6 +22,7 @@
 
 .profile_picture {
   border-radius: 10px;
+  max-width: max-content;
 }
 
 .profile_socials {

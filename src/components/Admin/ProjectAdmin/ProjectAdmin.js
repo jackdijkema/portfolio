@@ -95,7 +95,6 @@ const ProjectAdmin = () => {
             <th>Description</th>
             <th>Link</th>
             <th></th>
-            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -104,15 +103,6 @@ const ProjectAdmin = () => {
               <td>{project.name}</td>
               <td>{project.description}</td>
               <td>{project.link}</td>
-              <td>
-                <button className="button">
-                  <FontAwesomeIcon
-                    icon="fa-solid fa-pencil"
-                    size={"1x"}
-                    className="icon"
-                  />{" "}
-                </button>
-              </td>
               <td>
                 <button
                   className="button"

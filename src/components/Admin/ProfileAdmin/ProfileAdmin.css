@@ -94,3 +94,11 @@ input {
   font-weight: 600;
   max-width: fit-content;
 }
+
+
+@media only screen and (max-width: 600px) {
+  .column_container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+}
