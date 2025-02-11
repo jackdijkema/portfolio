@@ -3,6 +3,7 @@
   height: 50vh;
   margin: auto;
   width: 80%;
+  border: yellow 1px solid;
 }
 
 .project__title {

@@ -11,6 +11,7 @@ import {
   deleteDoc,
   doc,
 } from "firebase/firestore";
+import { toast } from "react-toastify";
 library.add(faTrashCan, faPencil);
 
 const ProjectAdmin = () => {
@@ -41,10 +42,10 @@ const ProjectAdmin = () => {
         description: enteredDescription,
         link: enteredLink,
       });
-      FetchProjects();
-      alert("Project added succesfully.", "id:", docRef.id);
+      await FetchProjects();
+      toast.success("Project added succesfully.", "id:", docRef.id);
     } catch (error) {
-      alert(error);
+      toast.error(error);
     }
   };
 
@@ -52,10 +53,10 @@ const ProjectAdmin = () => {
     try {
       console.log(id);
       await deleteDoc(doc(db, "projects", id));
-      alert("Project Deleted Succesfully.");
+      toast.success("Project Deleted Succesfully.");
       FetchProjects();
     } catch (error) {
-      alert(error, "project id:", id);
+      toast.success(error, "project id:", id);
     }
   };
 
@@ -106,7 +107,8 @@ const ProjectAdmin = () => {
               <td>
                 <button
                   className="button"
-                  onClick={() => removeProjectHandler(project.id)}>
+                  onClick={() => removeProjectHandler(project.id)}
+                >
                   <FontAwesomeIcon
                     icon="fa-solid fa-trash-can"
                     size={"1x"}

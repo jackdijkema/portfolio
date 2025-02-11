@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 import AuthContext from "../../../store/auth-context";
 import "./Navbar.css";
 
@@ -8,6 +9,7 @@ function Navbar() {
   // const isloggedIn = authCtx.isLoggedIn;
   const logoutHandler = () => {
     authCtx.logout();
+    toast.success("Logged out");
   };
   return (
     <nav className="headbar">
@@ -20,16 +22,14 @@ function Navbar() {
             <Link to="#about">About</Link>
           </>
         )}
-        
+
         {authCtx.isLoggedIn && (
           <>
-          <Link to="/" >
-             Home
-             </Link> 
-            <Link to="/dashboard" >
-              Admin panel
+            <Link to="/">Home</Link>
+            <Link to="/dashboard">Admin panel</Link>
+            <Link onClick={logoutHandler} to="/">
+              Logout
             </Link>
-            <Link onClick={logoutHandler} to="/">Logout</Link>
           </>
         )}
       </ul>

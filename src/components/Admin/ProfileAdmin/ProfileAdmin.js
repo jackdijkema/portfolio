@@ -1,19 +1,15 @@
 import "./ProfileAdmin.css";
 import { db } from "../../../store/firebase";
 import { useState, useEffect, useRef } from "react";
-import {
-  collection,
-  getDocs,
-  doc,
-  setDoc,
-} from "firebase/firestore";
+import { collection, getDocs, doc, setDoc } from "firebase/firestore";
+import { toast } from "react-toastify";
 
 const ProfileAdmin = () => {
   const [profile, setProfile] = useState([]);
 
   const FetchProfile = async () => {
     try {
-      getDocs(collection(db, "profile")).then((querySnapshot) => {
+      await getDocs(collection(db, "profile")).then((querySnapshot) => {
         const newData = querySnapshot.docs.map((doc) => ({
           ...doc.data(),
           id: doc.id,
@@ -21,7 +17,7 @@ const ProfileAdmin = () => {
         setProfile(newData);
       });
     } catch (error) {
-      alert(error);
+      toast.error(error);
     }
     console.log(profile);
   };
@@ -40,16 +36,17 @@ const ProfileAdmin = () => {
     const enteredLinkedin = enteredLinkedinRef.current.value;
 
     try {
-       await setDoc(doc(db, "profile", profile[0]?.id), {
+      await setDoc(doc(db, "profile", profile[0]?.id), {
         name: enteredName,
         occupation: enteredOccupation,
         bio: enteredBio,
         github: enteredGithub,
         linkedin: enteredLinkedin,
       });
+      toast.success("Profile saved");
       FetchProfile();
     } catch (error) {
-      alert(error);
+      toast.error(error);
     }
   };
 
@@ -57,7 +54,7 @@ const ProfileAdmin = () => {
     FetchProfile();
   }, []);
 
-    return (
+  return (
     <section className="profile_container">
       <h2 className="profile__h1">Profile</h2>
       <section className="column_container">
@@ -65,6 +62,7 @@ const ProfileAdmin = () => {
           <figure className="profile_figure_admin">
             <img
               className="profile_picture_admin"
+              // TODO: change profilepic
               src={require("../../Home/Profile/img/selfie.png")}
               alt="selfie of {props.name}"
             ></img>

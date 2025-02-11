@@ -4,29 +4,26 @@ import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { db } from "../../../store/firebase";
 import { useEffect, useState } from "react";
-import {
-  collection,
-  getDocs,
-} from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
+import { toast } from "react-toastify";
+
 library.add(faGithub);
 library.add(faLinkedin);
 
-function Profile(props) {
-
+function Profile() {
   const [profile, setProfile] = useState([]);
 
   const FetchProfile = async () => {
     try {
-      getDocs(collection(db, "profile")).then((querySnapshot) => {
+      getDocs(collection(db, "profile")).catch((querySnapshot) => {
         const newData = querySnapshot.docs.map((doc) => ({
           ...doc.data(),
           id: doc.id,
         }));
         setProfile(newData);
-        console.log(newData);
       });
     } catch (error) {
-      alert(error);
+      toast.error(error);
     }
   };
 

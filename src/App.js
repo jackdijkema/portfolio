@@ -7,12 +7,14 @@ import Admin from "./pages/Admin";
 import Dashboard from "./pages/Dashboard";
 import { useContext } from "react";
 import AuthContext from "./store/auth-context";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   const authCtx = useContext(AuthContext);
   const isLoggedIn = authCtx.isLoggedIn;
   return (
     <main>
+      <ToastContainer position="bottom-right" autoClose={2000} />
       <Router>
         <Routes>
           <Route index path="/" element={<Home />} />
