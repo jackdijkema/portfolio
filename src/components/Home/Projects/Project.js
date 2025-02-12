@@ -28,14 +28,16 @@ function Project() {
       <h1 className="project__title">Projects</h1>
       <div className="columns_container">
         <div className="columns">
-          {projects.map((project, i) => (
-            <Article
-              key={i}
-              name={project.name}
-              bio={project.description}
-              link={project.link}
-            />
-          ))}
+          {projects
+            .sort((a, b) => a.displayPosition - b.displayPosition)
+            .map((project, i) => (
+              <Article
+                key={i}
+                name={project.name}
+                bio={project.description}
+                link={project.link}
+              />
+            ))}
         </div>
       </div>
     </div>

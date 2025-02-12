@@ -12,12 +12,13 @@ import {
   doc,
 } from "firebase/firestore";
 import { toast } from "react-toastify";
-library.add(faTrashCan, faPencil);
+import ProjectItem from "../admin-project-item/ProjectItem";
+library.add(faTrashCan);
 
 const ProjectAdmin = () => {
   const [projects, setProjects] = useState([]);
 
-  const FetchProjects = async () => {
+  const fetchProjects = async () => {
     getDocs(collection(db, "projects")).then((querySnapshot) => {
       const newData = querySnapshot.docs.map((doc) => ({
         ...doc.data(),
@@ -41,27 +42,17 @@ const ProjectAdmin = () => {
         name: enteredName,
         description: enteredDescription,
         link: enteredLink,
+        displayPosition: projects.length + 1,
       });
-      await FetchProjects();
+      await fetchProjects();
       toast.success("Project added succesfully.", "id:", docRef.id);
     } catch (error) {
       toast.error(error);
     }
   };
 
-  const removeProjectHandler = async (id) => {
-    try {
-      console.log(id);
-      await deleteDoc(doc(db, "projects", id));
-      toast.success("Project Deleted Succesfully.");
-      FetchProjects();
-    } catch (error) {
-      toast.success(error, "project id:", id);
-    }
-  };
-
   useEffect(() => {
-    FetchProjects();
+    fetchProjects();
   }, []);
 
   return (
@@ -92,6 +83,7 @@ const ProjectAdmin = () => {
       <table className="project_table">
         <thead>
           <tr className="projects">
+            <th>Position</th>
             <th>Name</th>
             <th>Description</th>
             <th>Link</th>
@@ -99,25 +91,11 @@ const ProjectAdmin = () => {
           </tr>
         </thead>
         <tbody>
-          {projects.map((project, i) => (
-            <tr>
-              <td>{project.name}</td>
-              <td>{project.description}</td>
-              <td>{project.link}</td>
-              <td>
-                <button
-                  className="button"
-                  onClick={() => removeProjectHandler(project.id)}
-                >
-                  <FontAwesomeIcon
-                    icon="fa-solid fa-trash-can"
-                    size={"1x"}
-                    className="icon"
-                  />{" "}
-                </button>
-              </td>
-            </tr>
-          ))}
+          {projects
+            .sort((a, b) => a.displayPosition - b.displayPosition)
+            .map((project) => (
+              <ProjectItem project={project} fetchProjects={fetchProjects} />
+            ))}
         </tbody>
       </table>
     </section>
