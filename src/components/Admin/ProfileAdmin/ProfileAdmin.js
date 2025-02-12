@@ -19,7 +19,6 @@ const ProfileAdmin = () => {
     } catch (error) {
       toast.error(error);
     }
-    console.log(profile);
   };
 
   const enteredNameRef = useRef();
@@ -27,6 +26,7 @@ const ProfileAdmin = () => {
   const enteredBioRef = useRef();
   const enteredGithubRef = useRef();
   const enteredLinkedinRef = useRef();
+  const profileLinkRef = useRef();
 
   const editProfileHandler = async () => {
     const enteredName = enteredNameRef.current.value;
@@ -34,6 +34,7 @@ const ProfileAdmin = () => {
     const enteredBio = enteredBioRef.current.value;
     const enteredGithub = enteredGithubRef.current.value;
     const enteredLinkedin = enteredLinkedinRef.current.value;
+    const enteredProfileLink = profileLinkRef.current.value;
 
     try {
       await setDoc(doc(db, "profile", profile[0]?.id), {
@@ -42,6 +43,7 @@ const ProfileAdmin = () => {
         bio: enteredBio,
         github: enteredGithub,
         linkedin: enteredLinkedin,
+        profileImage: enteredProfileLink,
       });
       toast.success("Profile saved");
       FetchProfile();
@@ -62,14 +64,18 @@ const ProfileAdmin = () => {
           <figure className="profile_figure_admin">
             <img
               className="profile_picture_admin"
-              // TODO: change profilepic
-              src={require("../../Home/Profile/img/selfie.png")}
-              alt="selfie of {props.name}"
+              src={profile[0]?.profileImage}
+              alt={"image of " + profile[0]?.name}
             ></img>
           </figure>
 
-          <section className="custom-upload-section button-center">
-            <input id="upload" className="button-center" type="file" />
+          <section className="custom-profile-pic">
+            <label>Profileimage link</label>
+            <input
+              ref={profileLinkRef}
+              type="text"
+              defaultValue={profile[0]?.profileImage}
+            ></input>
           </section>
         </section>
         <section className="column2">
@@ -85,13 +91,6 @@ const ProfileAdmin = () => {
             type="text"
             defaultValue={profile[0]?.occupation}
           ></input>
-          <label>Bio</label>
-          <textarea
-            ref={enteredBioRef}
-            className="profile_textarea"
-            type="text"
-            defaultValue={profile[0]?.bio}
-          ></textarea>
           <label>Github</label>
           <input
             ref={enteredGithubRef}
@@ -104,6 +103,14 @@ const ProfileAdmin = () => {
             type="text"
             defaultValue={profile[0]?.linkedin}
           ></input>
+          <label>Bio</label>
+          <textarea
+            ref={enteredBioRef}
+            className="profile_textarea"
+            type="text"
+            defaultValue={profile[0]?.bio}
+          ></textarea>
+
           <section className="profile_edit">
             <button className="button" onClick={editProfileHandler}>
               Save Profile

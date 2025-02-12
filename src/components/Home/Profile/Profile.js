@@ -15,7 +15,7 @@ function Profile() {
 
   const FetchProfile = async () => {
     try {
-      getDocs(collection(db, "profile")).catch((querySnapshot) => {
+      getDocs(collection(db, "profile")).then((querySnapshot) => {
         const newData = querySnapshot.docs.map((doc) => ({
           ...doc.data(),
           id: doc.id,
@@ -35,8 +35,8 @@ function Profile() {
       <figure className="profile_figure">
         <img
           className="profile_picture"
-          src={require("./img/selfie.png")}
-          alt="selfie of {props.name}"
+          src={profile[0]?.profileImage}
+          alt={"image of " + profile[0]?.name}
         ></img>
       </figure>
       <h1 className="profile_name">{profile[0]?.name}</h1>

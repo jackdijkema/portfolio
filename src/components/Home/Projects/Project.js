@@ -11,50 +11,31 @@ function Project() {
   const [projects, setProjects] = useState([]);
 
   const FetchProjects = async () => {
-
-    getDocs(collection(db, "projects"))
-    .then((querySnapshot) => {
-
-      const newData = querySnapshot.docs.map((doc) => ({...doc.data(), id: doc.id,}));
+    getDocs(collection(db, "projects")).then((querySnapshot) => {
+      const newData = querySnapshot.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      }));
       setProjects(newData);
     });
   };
-    useEffect(() => {
-      FetchProjects();
-    },[]); 
- 
+  useEffect(() => {
+    FetchProjects();
+  }, []);
+
   return (
     <div className="project">
       <h1 className="project__title">Projects</h1>
-      <div className="columns">
-        <div className="left_column">
+      <div className="columns_container">
+        <div className="columns">
           {projects.map((project, i) => (
             <Article
               key={i}
               name={project.name}
               bio={project.description}
               link={project.link}
-          />
+            />
           ))}
-
-        </div>
-
-        <div className="right_column">
-          <Article
-            name="DungeonOfGameBro"
-            bio="this is a game..."
-            link="https://google.com"
-          />
-          <Article
-            name="DungeonOfGameBro"
-            bio="this is a game..."
-            link="https://google.com"
-          />
-          <Article
-            name="DungeonOfGameBro"
-            bio="this is a game..."
-            link="https://google.com"
-          />
         </div>
       </div>
     </div>

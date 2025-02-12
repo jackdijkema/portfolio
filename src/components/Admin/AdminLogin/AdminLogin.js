@@ -1,5 +1,5 @@
 import "./AdminLogin.css";
-import { useRef, useContext, useEffect, useState } from "react";
+import { useRef, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -49,9 +49,9 @@ const AdminLogin = () => {
     });
 
     toast.promise(loginPromise, {
-      pending: "Logging in...",
       success: "Login successful! Redirecting...",
-      error: "Login failed. Please check your credentials.",
+      pending: "Logging in...",
+      error: "Login failed. " + loginPromise,
     });
 
     try {

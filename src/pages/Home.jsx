@@ -1,4 +1,4 @@
-import "../App.css"
+import "../App.css";
 
 import Navbar from "../components/UI/Navbar/Navbar";
 import Profile from "../components/Home/Profile/Profile";
@@ -9,13 +9,7 @@ function Home() {
   return (
     <main>
       <Navbar />
-      <Profile
-        name="Jack Dijkema"
-        title="Software Developer"
-        about="I'm Jack – a developer from the Netherlands. Currently studying Software-Engineering at Hogeschool Leiden."
-        ghlink="https://github.com/jackdijkema"
-        lilink="https://linkedin.com/jackdijkema"
-      />
+      <Profile />
       <Project />
     </main>
   );

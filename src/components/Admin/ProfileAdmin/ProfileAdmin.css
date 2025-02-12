@@ -5,6 +5,11 @@
   flex-direction: column;
 }
 
+label {
+    font-weight: bold;
+    padding: 3px;
+}
+
 .profile_preview {
   display: flex;
   flex-direction: column;
@@ -67,11 +72,12 @@ input {
   margin: auto;
 }
 
-.custom-upload-section {
+.custom-profile-pic {
   display: flex;
   flex-direction: column;
-  padding: 1rem; 
-  width: 100%;
+  justify-content: center;
+  align-items: flex-start;
+  margin: auto;
 }
 
 .custom-upload-section > button {
