@@ -1,5 +1,5 @@
 import "./ProjectAdmin.css";
-import { faTrashCan, faPencil } from "@fortawesome/free-solid-svg-icons";
+import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState, useEffect, useRef } from "react";
@@ -8,15 +8,18 @@ import {
   collection,
   getDocs,
   addDoc,
-  deleteDoc,
-  doc,
 } from "firebase/firestore";
 import { toast } from "react-toastify";
 import ProjectItem from "../admin-project-item/ProjectItem";
+
 library.add(faTrashCan);
 
 const ProjectAdmin = () => {
   const [projects, setProjects] = useState([]);
+
+  useEffect(() => {
+    fetchProjects();
+  }, []);
 
   const fetchProjects = async () => {
     getDocs(collection(db, "projects")).then((querySnapshot) => {
@@ -51,10 +54,6 @@ const ProjectAdmin = () => {
     }
   };
 
-  useEffect(() => {
-    fetchProjects();
-  }, []);
-
   return (
     <section className="projects_container">
       <h2 className="project__h1">Projects</h2>
@@ -83,6 +82,7 @@ const ProjectAdmin = () => {
       <table className="project_table">
         <thead>
           <tr className="projects">
+            <th>ID</th>
             <th>Position</th>
             <th>Name</th>
             <th>Description</th>
@@ -94,7 +94,7 @@ const ProjectAdmin = () => {
           {projects
             .sort((a, b) => a.displayPosition - b.displayPosition)
             .map((project) => (
-              <ProjectItem project={project} fetchProjects={fetchProjects} />
+              <ProjectItem key={project.id} project={project} fetchProjects={fetchProjects} />
             ))}
         </tbody>
       </table>

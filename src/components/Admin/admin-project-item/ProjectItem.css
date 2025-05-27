@@ -18,6 +18,10 @@
 
 }
 
+tr {
+  border-bottom: 1px solid black;
+}
+
 .td-item th {
   padding: 0.75rem;
   text-align: left;
@@ -32,7 +36,7 @@
 }
 
 .td-item td {
-  border-bottom: 1px solid black;
+  /* border-bottom: 1px solid black; */
   padding: 0.75rem;
   margin-right: 10px;
   border-radius: 10px;
@@ -57,6 +61,16 @@
   margin: 1rem;
   height: 3rem;
   max-width: 15rem;
+  margin-right: 10px;
+  border: solid black 1px;
+}
+
+
+.admin__project_input_flex {
+  display: flex;
+  margin: 1rem;
+  height: 3rem;
+  max-width: 10rem;
   margin-right: 10px;
   border: solid black 1px;
 }
