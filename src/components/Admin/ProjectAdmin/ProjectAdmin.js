@@ -1,7 +1,7 @@
 import "./ProjectAdmin.css";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState, useEffect, useRef } from "react";
 import { db } from "../../../store/firebase";
 import {
@@ -82,7 +82,6 @@ const ProjectAdmin = () => {
       <table className="project_table">
         <thead>
           <tr className="projects">
-            <th>ID</th>
             <th>Position</th>
             <th>Name</th>
             <th>Description</th>

@@ -10,7 +10,8 @@ function Article(props) {
     <article className="project__article">
       <div className="project__header">
         <a href={props.link}>
-         {props.name} 
+         {props.name}
+          {" "}
           <FontAwesomeIcon
             icon="fa-solid fa-arrow-right"
             size={"1x"}

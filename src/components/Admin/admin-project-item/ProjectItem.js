@@ -48,12 +48,10 @@ const ProjectItem = ({ project, fetchProjects }) => {
       const projectRef = doc(db, "projects", id);
       await updateDoc(projectRef, projectData);
 
-      // Replace inputs with plain text
       nameCell.textContent = nameInput.value;
       descCell.textContent = descInput.value;
       linkCell.textContent = linkInput.value;
 
-      // Toggle buttons
       const editButton = row.querySelector("#edit-button");
       const saveButton = row.querySelector("#save-button");
       saveButton.hidden = true;
@@ -117,7 +115,6 @@ const ProjectItem = ({ project, fetchProjects }) => {
 
   return (
     <tr>
-      <td className="td-item">{project.id}</td>
       <td className="td-item">{project.displayPosition}</td>
       <td className="td-item" id="project-name">{project.name}</td>
       <td className="td-item" id="project-description">{project.description}</td>
