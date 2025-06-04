@@ -97,35 +97,35 @@ const EducationItem = ({ education, fetchEducationData }) => {
       schoolInput.type = "text";
       schoolInput.id = "education-school";
       schoolInput.value = education.school;
-      schoolInput.className = "admin__project_input_flex";
+      schoolInput.className = "admin__education_input middel_kolom_input";
       schoolInput.placeholder = "Education School";
 
       const bioInput = document.createElement("input");
       bioInput.type = "text";
       bioInput.id = "education-bio";
       bioInput.value = education.bio;
-      bioInput.className = "admin__project_input_flex";
+      bioInput.className = "admin__education_input grote_kolom_input";
       bioInput.placeholder = "Education Bio";
 
       const majorInput = document.createElement("input");
       majorInput.type = "text";
       majorInput.id = "education-major";
       majorInput.value = education.major;
-      majorInput.classNeme = "admin__project_input_flex";
+      majorInput.classNeme = "admin__education_input middel_kolom_input";
       majorInput.placeholder = "education major";
 
       const vanInput = document.createElement("input");
       vanInput.type = "text";
       vanInput.id = "education-van";
       vanInput.value = education.van;
-      vanInput.classNeme = "admin__project_input_flex";
+      vanInput.classNeme = "admin__education_input kleine_kolom_input";
       vanInput.placeholder = "education Van";
 
       const totInput = document.createElement("input");
       totInput.type = "text";
       totInput.id = "education-tot";
       totInput.value = education.tot;
-      totInput.classNeme = "admin__project_input_flex";
+      totInput.classNeme = "admin__education_input kleine_kolom_input";
       totInput.placeholder = "education Tot";
 
       schoolCell.textContent = "";
@@ -160,10 +160,10 @@ const EducationItem = ({ education, fetchEducationData }) => {
           <td className="td-item" id="education-bio">
         {education.bio}
       </td>
-         <td className="td-item" id="education-van">
+         <td className="td-item kleinere_kolom" id="education-van">
         {education.van}
       </td>
-         <td className="td-item" id="education-tot">
+         <td className="td-item kleinere_kolom" id="education-tot">
         {education.tot}
       </td>
       <td className="td-item">
